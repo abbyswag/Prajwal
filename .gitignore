@@ -1,6 +1,4 @@
-env/
-
-*.pyc
 __pycache__/
-
 .vscode/
+env/
+client/

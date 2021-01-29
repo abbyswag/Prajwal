@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    text-align: center;
+    color: black;
+}
+
+body{
+    font-family: sans-serif;
+    font-size: 1rem;
+}
+
+a{
+    text-decoration: none;
+}
