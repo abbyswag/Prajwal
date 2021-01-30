@@ -1,4 +1,7 @@
-__pycache__/
-.vscode/
 env/
-client/
+
+__pycache__/
+
+instance/
+
+data.txt

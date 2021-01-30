@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import render_template
-
+from server import serverFiles
+ 
 app = Flask(__name__)
 
 @app.route('/')
@@ -15,3 +16,4 @@ def about():
 def admin():
     return render_template('admin.html')
 
+serverFiles(app)
