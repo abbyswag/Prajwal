@@ -4,25 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team Helios</title>
-    <link rel="stylesheet" href="prajwal.css"/>
+    <link rel="stylesheet" href="./css/index.css"/>
+    <link rel="stylesheet" href="./css/base.css"/>
 </head>
 <body>
 
     <section class="welcome-page">
         <div class="app-name">
-            <img src="images/PRAJWAL.png" />
+            <img src="./img/prajwal.png" />
         </div>
         <div class="icon-pic">
-            <img src="images/icon.png"  >
+            <img src="./img/icon.png"  >
          </div>
-         <div class="btn">
-            <a href="Getstarted.html">Get Started</a>
+         <div class="start-btn get-user-page">
+            <a>Get Started</a>
          </div>
          <div class="vector">
-            <img src="images/vector1.svg"/>
+            <img src="./img/vector.svg"/>
         </div>
     </section>
 
-    <script src="prajwal.js"></script>
+    <section class="page" id="user-page">
+        <div class="page-heading">
+            <p>User Information</p>
+        </div>
+        <form action="/userdata">
+            <div class="txtb">
+                <!-- <label>User-name</label> -->
+                <input type="text" placeholder="Enter user name">
+            </div>
+            <div class="txtb">
+                <!-- <label>Phone-number</label> -->
+                <input type="text" placeholder="Enter your phone number">
+            </div>
+            <div class="btn get-panel-page">
+                <a>Panel-Details</a>
+            </div>
+        </form>
+    </section>
+
+    <section class="page" id="panel-page">
+        <div class="page-heading">
+            <p>Panel Information</p>
+        </div>
+        <form action="/paneldata"> 
+            <div class="txtb">
+                <!-- <label>Rated-Power</label> -->
+                <input type="text" placeholder="Enter rated-power">
+            </div>
+            <div class="txtb">
+                <!-- <label>Rated-efficiency</label> -->
+                <input type="text" placeholder="Enter rated-efficiency">
+            </div>
+            <div class="txtb">
+                <!-- <label>Panel area</label> -->
+                <input type="text" placeholder="Enter area of panel">
+            </div>
+            <div class="txtb">
+                <!-- <label>Nominal  cell temperature</label> -->
+                <input type="text" placeholder="Enter the nominal cell temperature">
+            </div>
+            <div class="txtb">
+                <!-- <label>Panel count</label> -->
+                <input type="text" placeholder="Enter number of panel">
+            </div>
+            <div class="txtb">
+                <!-- <label>Pvcell count</label> -->
+                <input type="text" placeholder="Enter number of Pv cell">
+            </div>
+            <div class="btn get-enviroment-page">
+                <a>Environment-Details</a>
+            </div>
+        </form>
+    </section>
+
+    <section class="page" id="enviroment-page">
+        <div class="page-heading">
+            <p>Environment Information</p>
+        </div>
+        <form action="/environmentdata">
+            <div class="txtb">
+                <!-- <label>Radiation</label> -->
+                <input type="text" placeholder="Enter Radiation">
+            </div>
+            <div class="btn get-output-page">
+                <a>Output</a>
+            </div>
+        </form>
+    </section>
+
+    <script src="./js/index.js"></script>
 </body>
 </html>

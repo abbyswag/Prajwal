@@ -1,0 +1,22 @@
+# Https request/responce pair data
+
+
+action = '/userdata'
+
+# input names list 
+user-name
+phone-number 
+
+action = '/paneldata'
+
+# input names list
+rated-power
+rated-efficiency
+panel-area
+nominal-cell-temp
+panel-count
+pvcell-count
+
+action = '/enviromentdata'
+
+# input names list

@@ -1,6 +1,6 @@
 from PVCell import PVCell
 
-class SolarPanel(PVCell):
+class SolarPanel:
     """Solar Panel Class"""
     def __init__(self,area,ratedPower,cellCount,nocTemp,tempCofficient):
         self.cellCount = cellCount

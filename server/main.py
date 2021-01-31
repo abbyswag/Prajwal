@@ -1,6 +1,9 @@
 import os
+
 from flask import request
-from werkzeug import secure_filename
+from werkzeug.utils import secure_filename
+
+from core.PVCell import PVCell
 
 def mainRoute(app):
 
@@ -11,7 +14,7 @@ def mainRoute(app):
             ratedEfficiency = request.form['rated-efficiency']
             nominalCellTemp = request.form['nominal-cell-temp']
             panelArea = request.form['panel-area']
-        print(ratedPower)
+            cell = PVCell(panelArea,ratedPower,ratedEfficiency,nominalCellTemp)
         return {
             'message':'Panel data are submitted'    
         }
@@ -27,5 +30,3 @@ def mainRoute(app):
         return {
             'message':'Enviroment data are recieved'    
         }
-
-    
