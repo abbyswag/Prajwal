@@ -3,7 +3,7 @@ import os
 from flask import request
 from werkzeug.utils import secure_filename
 
-from app.core.PVCell import PVCell
+from prajwal.core.PVCell import PVCell
 
 def mainRoute(app):
 
