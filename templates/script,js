@@ -1,0 +1,35 @@
+// Allow accessing the camera
+
+var vedio = document.querySelector("#videoElement");
+
+//mediaDevice and userMedia to navigate the access for camera 
+
+
+  if(navigator.mediaDevices.getUserMedia)
+  {
+    navigator.mediaDevices.getUserMedia({
+     vedio: true
+     // after allowing camera to vedio stream   
+    }) 
+    .then(function(stream)
+    {
+        Video.srcObject = stream 
+        //play the video
+        video.play();
+
+    }) .catch(function(error)
+    {
+        console.log(error);
+    });
+  }
+
+
+  // Capture Images
+  var image = document.elementFromId('image'),
+  context = image.getContext('2d');
+  //setting for resolution of image
+   document.getElementById('capture').addEventListener('click', function(){
+// draw an image when the button clicked on the canvas
+
+context.drawImage(video , 0 , 0 , image.width , image.height);
+   });
