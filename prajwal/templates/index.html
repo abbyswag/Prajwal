@@ -4,95 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team Helios</title>
-    <link rel="stylesheet" href="../static/css/index.css"/>
+    <link rel="stylesheet" href="../static/css/home.css"/>
     <link rel="stylesheet" href="../static/css/base.css"/>
 </head>
 <body>
 
-    <section class="welcome-page">
+    <section class="welcome-page" id="welcome-page">
         <div class="app-name">
             <img src="../static/img/prajwal.png" />
         </div>
-        <div class="icon-pic">
+        <div class="home-image">
             <img src="../static/img/icon.png"  >
          </div>
-         <div class="start-btn get-user-page">
-            <a>Get Started</a>
+         <div class="btn-wrapper">
+            <div class="start-btn">
+                Get Started
+            </div>
          </div>
          <div class="vector">
             <img src="../static/img/vector.svg"/>
         </div>
     </section>
 
-    <section class="page" id="user-page">
-        <div class="page-heading">
-            <p>User Information</p>
-        </div>
-        <form action="/userdata">
-            <div class="txtb">
-                <!-- <label>User-name</label> -->
-                <input type="text" placeholder="Enter user name">
+    <section class="data-entry-page" id="panel-data">
+        <form action="/paneldata" method="POST" class="form">
+            <div class="form-lable">
+                <p>Solar Panel Information</p>
             </div>
-            <div class="txtb">
-                <!-- <label>Phone-number</label> -->
-                <input type="text" placeholder="Enter your phone number">
-            </div>
-            <div class="btn get-panel-page">
-                <a>Panel-Details</a>
-            </div>
-        </form>
-    </section>
-
-    <section class="page" id="panel-page">
-        <div class="page-heading">
-            <p>Panel Information</p>
-        </div>
-        <form action="/paneldata"> 
-            <div class="txtb">
+            <div class="input-box">
                 <!-- <label>Rated-Power</label> -->
-                <input type="text" placeholder="Enter rated-power">
+                <input type="number" placeholder="Enter rated-power (watts)" name="rated-power">
             </div>
-            <div class="txtb">
+            <div class="input-box">
                 <!-- <label>Rated-efficiency</label> -->
-                <input type="text" placeholder="Enter rated-efficiency">
+                <input type="number" placeholder="Enter rated-efficiency (%)" name="rated-efficiency">
             </div>
-            <div class="txtb">
+            <div class="input-box">
                 <!-- <label>Panel area</label> -->
-                <input type="text" placeholder="Enter area of panel">
+                <input type="number" placeholder="Enter area of panel (m^2)" name="panel-area">
             </div>
-            <div class="txtb">
+            <div class="input-box">
                 <!-- <label>Nominal  cell temperature</label> -->
-                <input type="text" placeholder="Enter the nominal cell temperature">
+                <input type="number"  placeholder="Enter the nominal cell temperature (*C)" name="nominal-cell-temp">
             </div>
-            <div class="txtb">
+            <div class="input-box">
                 <!-- <label>Panel count</label> -->
-                <input type="text" placeholder="Enter number of panel">
+                <input type="number" placeholder="Enter number of panel" name="panel-count">
             </div>
-            <div class="txtb">
+            <div class="input-box">
                 <!-- <label>Pvcell count</label> -->
-                <input type="text" placeholder="Enter number of Pv cell">
+                <input type="number" placeholder="Enter number of Pv cell" name="cell-count">
             </div>
-            <div class="btn get-enviroment-page">
-                <a>Environment-Details</a>
-            </div>
-        </form>
-    </section>
-
-    <section class="page" id="enviroment-page">
-        <div class="page-heading">
-            <p>Environment Information</p>
-        </div>
-        <form action="/environmentdata">
-            <div class="txtb">
-                <!-- <label>Radiation</label> -->
-                <input type="text" placeholder="Enter Radiation">
-            </div>
-            <div class="btn get-output-page">
-                <a>Output</a>
+            <div class="btn-wrapper">
+                <button type="submit" class="form-btn">Submit</button>
             </div>
         </form>
     </section>
 
-    <script src="../static/js/index.js"></script>
+    <script src="../static/js/home.js"></script>
 </body>
 </html>

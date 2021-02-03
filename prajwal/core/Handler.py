@@ -1,0 +1,2 @@
+from SolarPanel import SolarPanel
+

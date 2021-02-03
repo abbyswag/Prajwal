@@ -1,9 +1,6 @@
 import os
-
-from flask import request
+from flask import request, render_template
 from werkzeug.utils import secure_filename
-
-from prajwal.core.PVCell import PVCell
 
 def mainRoute(app):
 
@@ -14,10 +11,9 @@ def mainRoute(app):
             ratedEfficiency = request.form['rated-efficiency']
             nominalCellTemp = request.form['nominal-cell-temp']
             panelArea = request.form['panel-area']
-            cell = PVCell(panelArea,ratedPower,ratedEfficiency,nominalCellTemp)
-        return {
-            'message':'Panel data are submitted'    
-        }
+            panelCount = request.form['panel-count']
+            cellCount = request.form['cell-count']
+        return render_template('enviroment.html')
 
     uploads = os.path.join(app.instance_path, 'uploads')
 

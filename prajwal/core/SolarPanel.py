@@ -2,21 +2,17 @@ from PVCell import PVCell
 
 class SolarPanel:
     """Solar Panel Class"""
-    def __init__(self,area,ratedPower,cellCount,nocTemp,tempCofficient):
+    def __init__(self,ratedPower,ratedEfficiency,area,cellCount,nominalCellTemp,tempCofficient = -0.005):
+        """ratedPower - watts
+            ratedEfficiency - %
+            area - m^2
+            cellCount - number
+            nominalCellTemp - *C """
         self.cellCount = cellCount
-        self.cell = PVCell(area/cellCount,ratedPower/cellCount,nocTemp,tempCofficient)
+        self.area = area
+        self.cell = PVCell(ratedPower/cellCount,ratedEfficiency/100,nominalCellTemp,tempCofficient)
 
-    def getElectricPower(self,temp,effectiveRadiation):
-        return self.cell.getElectricPower(temp,effectiveRadiation)*self.cellCount
+    def getElectricPower(self,ambidentTemp,radiation):
+        return self.cell.getElectricPower(ambidentTemp,radiation,self.area)*self.cellCount
 
-    def getEffectiveRadiation(self,radiation):
-        pass
 
-    def getInclinationFactor(self,angle):
-        pass
-
-    def getAltitudeFactor(self,angle):
-        pass
-
-    def getMaxPowerVoltage(self,openCircuitVoltage,shortCircuitCurrent):
-        pass

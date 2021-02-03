@@ -1,4 +1,4 @@
-/* get started page */
+/* welcome-page */
 
 .welcome-page{
     width: 100vw;
@@ -17,17 +17,17 @@
     font-size: 48px;
     line-height: 57px;
 }
-.icon-pic{
+.home-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn-wrapper{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .start-btn{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.start-btn a{
     width: 10rem;
     border: outset #f9f06f 2px;
     border-radius: 6px;
@@ -41,7 +41,7 @@
     background-color: yellow;
     color: rgba(0, 0, 0, 0.64);
 }
-.start-btn a:hover{
+.start-btn:hover{
     color:crimson;
     background-color:aqua ;
 }
@@ -51,9 +51,9 @@
     align-items: center;
 }
 
-/* data entry pages */
+/* data entry page */
 
-.page{
+.data-entry-page{
     width: 85%;
     max-width: 800px;
     background: #f1f1f1;
@@ -69,7 +69,7 @@
     box-shadow:0 0 20px #bbb12dea;     
     display: none;   
 }
-.page-heading{
+.form-lable{
     margin-top: 0;
     align-items: center;
     display: flex;
@@ -80,7 +80,7 @@
     font-size: 40px;
     line-height: 45px;
 }
-.txtb{
+.input-box{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -89,20 +89,14 @@
     padding: 8px 14px;
     border-radius: 20px;
 }
-.txtb label{
-    display: ruby-base;
-    text-align: left;
-    color: #3333;
-    font-size: 14px;
-}
-.txtb input{
+.input-box input{
     width: 100%;
     border: none;
     outline: none;
     font-size: 18px;
     margin-top: 6px;
 }
-.btn a{
+.form-btn{
     display:block;
     background:  #f9f06f;
     padding: 4px 0;
@@ -119,9 +113,8 @@
     cursor: pointer;
     margin-top: 6px;
     width: 100%;
-
 }
-a:hover{
+.form-btn:hover{
     color:crimson;
     background-color:aqua ;
 }
