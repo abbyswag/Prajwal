@@ -1,4 +1,4 @@
-from PVCell import PVCell
+from pvCell import PVCell
 
 class SolarPanel:
     """Solar Panel Class"""
@@ -15,4 +15,5 @@ class SolarPanel:
     def getElectricPower(self,ambidentTemp,radiation):
         return self.cell.getElectricPower(ambidentTemp,radiation,self.area)*self.cellCount
 
-
+    def getEfficiency(self,ambidentTemp,radiation):
+        return self.cell.getEfficiency(ambidentTemp,radiation)

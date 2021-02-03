@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../static/css/base.css"/>
-    <link rel="stylesheet" href="../static/css/header.css"/>
+    <title>Panel-Data</title>
     <link rel="stylesheet" href="../static/css/home.css"/>
-    <link rel="stylesheet" href="../static/css/enviroment.css"/>
+    <link rel="stylesheet" href="../static/css/header.css"/>
+    <link rel="stylesheet" href="../static/css/base.css"/>
 </head>
 <body>
 
@@ -46,34 +45,41 @@
             </div>
         </div>
     </header>
-
-    <section>
-
-        <div class="page-lable">
-            <p>Enviroment Information</p>
-        </div>
-
-        <canvas id="canvas" width="250px" height="225px"></canvas>
-
-        <form action="/enviromentdata" method="POST" enctype="multipart/form-data">
-
-            <div class="input-box">
-                <input type="file" accept="image/*" capture="user" name="image" id="load-image">
+    
+    <section class="data-entry-page" id="panel-data">
+        <form action="/paneldata" method="POST" class="form">
+            <div class="form-lable">
+                <p>Solar Panel Information</p>
             </div>
             <div class="input-box">
-                <input type="number" id="radiation" name="radiation" placeholder="radiation (watts/m^2)">
+                <!-- <label>Rated-Power</label> -->
+                <input type="number" placeholder="Enter rated-power (watts)" name="rated-power">
             </div>
             <div class="input-box">
-                <input type="number" placeholder="Enter your sorrounding's temprature (*C)" name="ambident-temp">
+                <!-- <label>Rated-efficiency</label> -->
+                <input type="number" placeholder="Enter rated-efficiency (%)" name="rated-efficiency">
+            </div>
+            <div class="input-box">
+                  <!-- <label>Panel area</label> -->
+                <input type="number" placeholder="Enter area of panel (m^2)" name="panel-area">
+            </div>
+            <div class="input-box">
+                <!-- <label>Nominal  cell temperature</label> -->
+                <input type="number"  placeholder="Enter the nominal cell temperature (*C)" name="nominal-cell-temp">
+            </div>
+            <div class="input-box">
+                <!-- <label>Panel count</label> -->
+                <input type="number" placeholder="Enter number of panel" name="panel-count">
+            </div>
+            <div class="input-box">
+                <!-- <label>Pvcell count</label> -->
+                <input type="number" placeholder="Enter number of Pv cell" name="cell-count">
             </div>
             <div class="btn-wrapper">
                 <button type="submit" class="form-btn">Submit</button>
             </div>
-
         </form>
-
     </section>
 
-    <script src="../static/js/enviroment.js"></script>
 </body>
 </html>

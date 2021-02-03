@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Helios</title>
+    <title>Prajwal</title>
     <link rel="stylesheet" href="../static/css/home.css"/>
     <link rel="stylesheet" href="../static/css/base.css"/>
 </head>
@@ -18,47 +18,14 @@
          </div>
          <div class="btn-wrapper">
             <div class="start-btn">
-                Get Started
+                <a href="/home">
+                    Get Started
+                </a>
             </div>
          </div>
          <div class="vector">
             <img src="../static/img/vector.svg"/>
         </div>
-    </section>
-
-    <section class="data-entry-page" id="panel-data">
-        <form action="/paneldata" method="POST" class="form">
-            <div class="form-lable">
-                <p>Solar Panel Information</p>
-            </div>
-            <div class="input-box">
-                <!-- <label>Rated-Power</label> -->
-                <input type="number" placeholder="Enter rated-power (watts)" name="rated-power">
-            </div>
-            <div class="input-box">
-                <!-- <label>Rated-efficiency</label> -->
-                <input type="number" placeholder="Enter rated-efficiency (%)" name="rated-efficiency">
-            </div>
-            <div class="input-box">
-                <!-- <label>Panel area</label> -->
-                <input type="number" placeholder="Enter area of panel (m^2)" name="panel-area">
-            </div>
-            <div class="input-box">
-                <!-- <label>Nominal  cell temperature</label> -->
-                <input type="number"  placeholder="Enter the nominal cell temperature (*C)" name="nominal-cell-temp">
-            </div>
-            <div class="input-box">
-                <!-- <label>Panel count</label> -->
-                <input type="number" placeholder="Enter number of panel" name="panel-count">
-            </div>
-            <div class="input-box">
-                <!-- <label>Pvcell count</label> -->
-                <input type="number" placeholder="Enter number of Pv cell" name="cell-count">
-            </div>
-            <div class="btn-wrapper">
-                <button type="submit" class="form-btn">Submit</button>
-            </div>
-        </form>
     </section>
 
     <script src="../static/js/home.js"></script>

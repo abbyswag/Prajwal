@@ -15,14 +15,14 @@ def mainRoute(app):
             cellCount = request.form['cell-count']
         return render_template('enviroment.html')
 
+
     uploads = os.path.join(app.instance_path, 'uploads')
 
-    @app.route('/enviromentdata', methods = ['POST'])
+    @app.route('/enviromentdata', methods = ['POST','GET'])
     def getEnviroData():
         if request.method == 'POST':
             radiation = request.form['radiation']
-            envImage = request.files['env-image']
+            ambidentTemp = request.form['ambident-temp']
+            envImage = request.files['image']
             envImage.save(uploads + '/' + secure_filename(envImage.filename))
-        return {
-            'message':'Enviroment data are recieved'    
-        }
+        return render_template('output.html')
