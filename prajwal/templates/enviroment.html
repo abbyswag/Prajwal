@@ -60,11 +60,16 @@
             <div class="input-box">
                 <input type="file" accept="image/*" capture="user" name="image" id="load-image">
             </div>
-            <div class="input-box">
-                <input type="number" id="radiation" name="radiation" placeholder="radiation (watts/m^2)">
+            <div class="input-box" id="radiation-input">
+                <input type="text" id="radiation" name="radiation" placeholder="radiation (watts/m^2)">
             </div>
-            <div class="input-box">
-                <input type="number" placeholder="Enter your sorrounding's temprature (*C)" name="ambident-temp">
+            <p id="status"></p>
+            <div class="input-box" id="location-input">
+                <input type="text" id="location" name="location" placeholder="location">
+            </div>
+            
+            <div class="btn-wrapper">
+                <button type="button"  class="form-btn" id="find-me">Find Location</button>
             </div>
             <div class="btn-wrapper">
                 <button type="submit" class="form-btn">Submit</button>

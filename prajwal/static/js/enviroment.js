@@ -1,3 +1,10 @@
+let radiationInput = document.querySelector('#radiation-input')
+let locationInput = document.querySelector('#location-input')
+
+locationInput.style.display = 'none'
+radiationInput.style.display = 'none'
+
+
 document.querySelector('#load-image').addEventListener('input',loadImage)
 
 function loadImage(e){
@@ -35,5 +42,38 @@ function getRadiation(brightness){
 
 function inputRadiation(radiation){
     // console.log(radiation)
+    radiationInput.style.display = 'block'
     document.querySelector('#radiation').value = radiation
+    document.querySelector('#radiation').disabled = true
+}
+
+document.querySelector('#find-me').addEventListener('click', geoFindMe)
+
+function geoFindMe() {
+    const status = document.querySelector('#status');
+    const location = document.querySelector('#location')
+
+    location.value = ''
+
+    function success(position) {
+        const latitude  = position.coords.latitude
+        const longitude = position.coords.longitude
+        console.log(latitude)
+        status.textContent = ''
+        locationInput.style.display = 'block'
+        document.querySelector('#find-me').style.display = 'none'
+        location.value = `${latitude},${longitude}`
+        location.disabled = true
+    }
+
+    function error() {
+        status.textContent = 'Unable to retrieve your location'
+    }
+
+    if(!navigator.geolocation) {
+        status.textContent = 'Geolocation is not supported by your browser'
+    } else {
+        status.textContent = 'Locating…'
+        navigator.geolocation.getCurrentPosition(success, error)
+    }
 }

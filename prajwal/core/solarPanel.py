@@ -1,12 +1,12 @@
-from pvCell import PVCell
+from prajwal.core.pvCell import PVCell
 
 class SolarPanel:
     """Solar Panel Class"""
-    def __init__(self,ratedPower,ratedEfficiency,area,cellCount,nominalCellTemp,tempCofficient = -0.005):
+    def __init__(self,ratedPower,ratedEfficiency,area,nominalCellTemp,cellCount,tempCofficient = -0.005):
         """ratedPower - watts
             ratedEfficiency - %
             area - m^2
-            cellCount - number
+            cellCount - costant
             nominalCellTemp - *C """
         self.cellCount = cellCount
         self.area = area

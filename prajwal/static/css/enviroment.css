@@ -23,3 +23,8 @@ canvas{
 form{
     padding: 1rem;
 }
+.data{
+    position: absolute;
+    top: 10rem;
+    right: 10rem;
+}
