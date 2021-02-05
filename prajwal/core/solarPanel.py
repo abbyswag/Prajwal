@@ -13,7 +13,7 @@ class SolarPanel:
         self.cell = PVCell(ratedPower/cellCount,ratedEfficiency/100,nominalCellTemp,tempCofficient)
 
     def getElectricPower(self,ambidentTemp,radiation):
-        return self.cell.getElectricPower(ambidentTemp,radiation,self.area)*self.cellCount
+        return self.cell.getElectricPower(ambidentTemp,radiation,self.area/self.cellCount)*self.cellCount
 
     def getEfficiency(self,ambidentTemp,radiation):
         return self.cell.getEfficiency(ambidentTemp,radiation)

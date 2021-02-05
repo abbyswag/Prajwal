@@ -1,9 +1,10 @@
 import os
 from flask import request, render_template
 from werkzeug.utils import secure_filename
-from prajwal.core import createPanel,setLocation,setRadiation,getOutput
+from prajwal.core import Handler
 
 def mainRoute(app):
+    coreHandler = Handler()
 
     @app.route('/paneldata', methods = ['POST','GET'])
     def fetchPanelData():
@@ -14,8 +15,8 @@ def mainRoute(app):
             panelArea = request.form['panel-area']
             cellCount = request.form['cell-count']
             panelCount = request.form['panel-count']
-            
-            createPanel(ratedPower,ratedEfficiency,nominalCellTemp,panelArea,cellCount,panelCount)
+
+            coreHandler.setPanel(ratedPower,ratedEfficiency,nominalCellTemp,panelArea,cellCount,panelCount)
         return render_template('enviroment.html')
 
 
@@ -23,23 +24,30 @@ def mainRoute(app):
     def getLocation():
         data = request.json
         location = data['location']
-        lat, lon = tuple(map(float,location.split(',')))
-        setLocation(lat,lon)
+        (lat,lon) = tuple(map(float,location.split(',')))
+
+        coreHandler.setLocation(lat,lon)
         return {
             'message':'location recieved'
         }
+
+    @app.route('/radiation', methods = ['POST'])
+    def getRadiation():
+        data = request.json
+        radiation = data['radiation']
+        rad = round(float(radiation),4)
+
+        coreHandler.setRadiation(rad)
+        return {
+            'message':'radiation recieved'
+        }
         
 
-    @app.route('/enviromentdata', methods = ['POST','GET'])
-    def getEnviroData():
+    @app.route('/enviromentimg', methods = ['POST','GET'])
+    def getEnviromentImg():
         if request.method == 'POST':
             image = request.files['image']
-            radiation = request.form['radiation']
-
-            rad = round(float(radiation),4)
-            setRadiation(rad)
-
+            
             uploads = os.path.join(app.instance_path, 'uploads')
             image.save(uploads + '/' + secure_filename(image.filename))
-
-        return getOutput()
+        return coreHandler.getOutput()

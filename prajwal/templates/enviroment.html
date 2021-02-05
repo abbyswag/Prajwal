@@ -33,17 +33,15 @@
             <p>Enviroment Information</p>
         </div>
         <canvas id="canvas" width="250px" height="225px"></canvas>
-        <form action="/enviromentdata" method="POST" enctype="multipart/form-data">
+        <form action="/enviromentimg" method="POST" enctype="multipart/form-data">
             <div class="input-box">
                 <input type="file" accept="image/*" capture="user" name="image" id="load-image">
             </div>
-            
+
+            <p id="radiation"></p>
             <p id="status"></p>
             <p id="location"></p>
-            
-            <div class="input-box" id="radiation-input">
-                <input type="text" id="radiation" name="radiation" placeholder="radiation (watts/m^2)">
-            </div>
+
             <div class="btn-wrapper">
                 <button type="button"  class="form-btn" id="find-me">Find Location</button>
             </div>

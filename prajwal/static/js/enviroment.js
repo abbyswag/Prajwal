@@ -1,10 +1,4 @@
-let radiationInput = document.querySelector('#radiation-input')
-
-radiationInput.style.display = 'none'
-
 document.querySelector('#load-image').addEventListener('input',loadImage)
-document.querySelector('#find-me').addEventListener('click', geoFindMe)
-
 
 function loadImage(e){
     const ctx = document.querySelector('#canvas').getContext('2d')
@@ -38,10 +32,11 @@ function getRadiation(brightness){
 }
 
 function inputRadiation(radiation){
-    radiationInput.style.display = 'block'
-    document.querySelector('#radiation').value = radiation
-    document.querySelector('#radiation').disabled = true
+    document.querySelector('#radiation').textContent = radiation
+    fetchRadiation(radiation)
 }
+
+document.querySelector('#find-me').addEventListener('click', geoFindMe)
 
 function geoFindMe() {
     const status = document.querySelector('#status');
@@ -62,7 +57,9 @@ function geoFindMe() {
     function error() {
         status.textContent = 'Unable to retrieve your location'
         alert('we are currently unable to recive your location, so your request goes with default lacation')
-        location.textContent = '21.8,80.9'
+        loc = '21.8,80.9'
+        location.textContent = loc
+        fetchLocation(loc)
     }
 
     if(!navigator.geolocation) {
@@ -81,6 +78,23 @@ function fetchLocation(location){
         },
         body:JSON.stringify({
             location:location
+        })
+    }).then((res)=>{
+        return res.json()
+    }).then((msg)=>{
+        console.log(msg.message)
+    })
+    .catch((err)=>console.log(err))
+}
+
+function fetchRadiation(radiation){
+    fetch('/radiation',{
+        method:'POST',
+        headers:{
+            'content-type':'application/json'
+        },
+        body:JSON.stringify({
+            radiation:radiation
         })
     }).then((res)=>{
         return res.json()
