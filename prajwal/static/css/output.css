@@ -1,0 +1,23 @@
+section{
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr;
+    height: 89vh;
+}
+.page-heading{
+    display: grid;
+    place-items: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.output-values{
+    display: grid;
+    place-items: center;
+    font-weight: 600;
+}
+.btn-wrapper{
+    display: grid;
+    place-items: center;
+}
+.btn a{
+    color: black;
+}
