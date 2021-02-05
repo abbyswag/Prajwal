@@ -10,7 +10,7 @@ section{
     box-sizing: border-box;
     border-radius: 0px;
     text-align:center;
-    box-shadow:0 0 20px #bbb12dea;   
+    box-shadow:0 0 20px #bbb12dea;
 }
 .page-lable{
     font-size: 1.4rem;
@@ -27,4 +27,10 @@ form{
     position: absolute;
     top: 10rem;
     right: 10rem;
+}
+@media screen and (max-width:480px){
+    section{
+        padding:0;
+        box-shadow: none;
+    }
 }

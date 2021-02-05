@@ -40,7 +40,7 @@ header{
 
 @media screen and (max-width:480px){
     header{
-        padding: 0.2rem 1.2rem;
+        padding: 1.2rem;
     }
     .app-name{
         margin-left: 0;
@@ -78,8 +78,8 @@ header{
         width: 100vw;
         height: 90vh;
         background-color: #000000;
-        opacity: .9;
-        display: flex;
+        opacity: .95;
+        display: none;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;

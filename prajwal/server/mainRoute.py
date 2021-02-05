@@ -1,9 +1,7 @@
 import os
 from flask import request, render_template
 from werkzeug.utils import secure_filename
-from prajwal.core.coreHandler import CoreHandler
-
-handler = CoreHandler()
+from prajwal.core import createPanel,setLocation,setRadiation,getOutput
 
 def mainRoute(app):
 
@@ -17,23 +15,31 @@ def mainRoute(app):
             cellCount = request.form['cell-count']
             panelCount = request.form['panel-count']
             
-            handler.setPanel(ratedPower,ratedEfficiency,nominalCellTemp,panelArea,cellCount,panelCount)
-
+            createPanel(ratedPower,ratedEfficiency,nominalCellTemp,panelArea,cellCount,panelCount)
         return render_template('enviroment.html')
 
+
+    @app.route('/location', methods = ['POST'])
+    def getLocation():
+        data = request.json
+        location = data['location']
+        lat, lon = tuple(map(float,location.split(',')))
+        setLocation(lat,lon)
+        return {
+            'message':'location recieved'
+        }
+        
 
     @app.route('/enviromentdata', methods = ['POST','GET'])
     def getEnviroData():
         if request.method == 'POST':
-            radiation = request.form['radiation']
-            location = request.form['location']
             image = request.files['image']
+            radiation = request.form['radiation']
 
-            lat, lon = tuple(map(float,location.split(',')))
             rad = round(float(radiation),4)
-            handler.setEnviroment(rad,lat,lon)
+            setRadiation(rad)
 
             uploads = os.path.join(app.instance_path, 'uploads')
             image.save(uploads + '/' + secure_filename(image.filename))
 
-        return handler.getOutput() 
+        return getOutput()

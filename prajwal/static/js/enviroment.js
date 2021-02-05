@@ -1,11 +1,10 @@
 let radiationInput = document.querySelector('#radiation-input')
-let locationInput = document.querySelector('#location-input')
 
-locationInput.style.display = 'none'
 radiationInput.style.display = 'none'
 
-
 document.querySelector('#load-image').addEventListener('input',loadImage)
+document.querySelector('#find-me').addEventListener('click', geoFindMe)
+
 
 function loadImage(e){
     const ctx = document.querySelector('#canvas').getContext('2d')
@@ -31,43 +30,39 @@ function getBrightness(data){
         count += 1
         totalAvg += avg
     }
-    // console.log(totalAvg)
     return Math.floor(totalAvg/count)
 }
 
 function getRadiation(brightness){
-    // console.log(brightness)
     return (200/51)*brightness
 }
 
 function inputRadiation(radiation){
-    // console.log(radiation)
     radiationInput.style.display = 'block'
     document.querySelector('#radiation').value = radiation
     document.querySelector('#radiation').disabled = true
 }
 
-document.querySelector('#find-me').addEventListener('click', geoFindMe)
-
 function geoFindMe() {
     const status = document.querySelector('#status');
     const location = document.querySelector('#location')
 
-    location.value = ''
+    location.textContent = ''
 
     function success(position) {
         const latitude  = position.coords.latitude
         const longitude = position.coords.longitude
-        console.log(latitude)
         status.textContent = ''
-        locationInput.style.display = 'block'
         document.querySelector('#find-me').style.display = 'none'
-        location.value = `${latitude},${longitude}`
-        location.disabled = true
+        let loc = `${latitude},${longitude}`
+        location.textContent = loc
+        fetchLocation(loc)
     }
 
     function error() {
         status.textContent = 'Unable to retrieve your location'
+        alert('we are currently unable to recive your location, so your request goes with default lacation')
+        location.textContent = '21.8,80.9'
     }
 
     if(!navigator.geolocation) {
@@ -76,4 +71,21 @@ function geoFindMe() {
         status.textContent = 'Locating…'
         navigator.geolocation.getCurrentPosition(success, error)
     }
+}
+
+function fetchLocation(location){
+    fetch('/location',{
+        method:'POST',
+        headers:{
+            'content-type':'application/json'
+        },
+        body:JSON.stringify({
+            location:location
+        })
+    }).then((res)=>{
+        return res.json()
+    }).then((msg)=>{
+        console.log('done')
+    })
+    .catch((err)=>console.log(err))
 }
