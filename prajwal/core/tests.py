@@ -1,8 +1,8 @@
 import matplotlib.pyplot as plt
-from PVCell import PVCell
+from pvCell import PVCell
 
 
-with open('PVCell_test_data.txt','r') as f:
+with open('pvCellTestData.txt','r') as f:
     f.readline()
     line = f.readline()
     data = list(map(float,line.split(' ')))
@@ -14,7 +14,7 @@ for i in range(20):
     temp.append(5*i)
     cellTemp.append(cell.getCellTemp(5*i,1000))
     efficiecy.append(cell.getEfficiency(5*i,1000))
-    output.append(cell.getElectricPower(5*i,1000,1))
+    output.append(cell.getElectricPower(5*i,1000,.25))
 
 plt.plot(temp,cellTemp)
 plt.ylabel('cell temprature')

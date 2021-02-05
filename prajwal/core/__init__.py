@@ -7,6 +7,7 @@ class Handler:
         self.panel = 'panel'
         self.radiation = 1000
         self.panelCount = 1
+        self.temp = 25
         self.lat = 20.8
         self.lon = 80.9
 
@@ -29,25 +30,18 @@ class Handler:
             key = '746f6fd0c9a7640e6f07eca2eff86c71'
         return key
 
-    def fetchTemp(self,lat,lon):
-        url = 'https://api.openweathermap.org/data/2.5/onecall?lat='+str(lat)+'&lon='+str(lon)+'&exclude={part}&appid='+self.loadApiKey()
+    def fetchTemp(self):
+        url = 'https://api.openweathermap.org/data/2.5/onecall?lat='+str(self.lat)+'&lon='+str(self.lon)+'&exclude={part}&appid='+self.loadApiKey()
         try:
             with urllib.request.urlopen(url) as f:
                 data = json.load(f)
                 temp = float(data['current']['temp'])
         except:
             temp = 298
-        return float(temp-273)
+        self.temp = float(temp-273)
 
-    def getElectricPower(self,temp):
-        return self.panel.getElectricPower(temp,self.radiation)*self.panelCount
+    def getElectricPower(self):
+        return self.panel.getElectricPower(self.temp,self.radiation)*self.panelCount
 
-    def getEfficiency(self,temp):
-        return self.panel.getEfficiency(temp,self.radiation)
-
-    def getOutput(self):
-        temp = self.fetchTemp(self.lat,self.lon)
-        return {
-            'electric-power':self.getElectricPower(temp),
-            'efficiency':self.getEfficiency(temp)
-        }
+    def getEfficiency(self):
+        return self.panel.getEfficiency(self.temp,self.radiation)

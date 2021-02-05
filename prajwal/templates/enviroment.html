@@ -6,24 +6,24 @@
     <title>Document</title>
     <link rel="stylesheet" href="../static/css/base.css"/>
     <link rel="stylesheet" href="../static/css/header.css"/>
-    <link rel="stylesheet" href="../static/css/home.css"/>
+    <link rel="stylesheet" href="../static/css/data.css"/>
     <link rel="stylesheet" href="../static/css/enviroment.css"/>
 </head>
 <body>
 
     <header>
         <div class="site-name">
-            <a href="home.html">Prajwal</a>
+            <a href="/data">Prajwal</a>
         </div>
         <div class="nav">
             <li>
-                <a href="about.html">About</a>
+                <a href="/about">About</a>
             </li>
             <li>
-                <a href="docs.html">Docs</a>
+                <a href="/docs">Docs</a>
             </li>
             <li>
-                <a href="user.html">Login</a>
+                <a href="/user">Login</a>
             </li>
         </div>
     </header>
@@ -33,7 +33,7 @@
             <p>Enviroment Information</p>
         </div>
         <canvas id="canvas" width="250px" height="225px"></canvas>
-        <form action="/enviromentimg" method="POST" enctype="multipart/form-data">
+        <form action="/data/envimage" method="POST" enctype="multipart/form-data">
             <div class="input-box">
                 <input type="file" accept="image/*" capture="user" name="image" id="load-image">
             </div>

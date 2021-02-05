@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel-Data</title>
-    <link rel="stylesheet" href="../static/css/header.css"/>
     <link rel="stylesheet" href="../static/css/base.css"/>
-    <link rel="stylesheet" href="../static/css/home.css"/>
+    <link rel="stylesheet" href="../static/css/header.css"/>
+    <link rel="stylesheet" href="../static/css/data.css"/>
 </head>
 <body>
 
@@ -28,33 +28,27 @@
     </header>
     
     <section class="data-entry-page" id="panel-data">
-        <form action="/paneldata" method="POST" class="form">
+        <form action="/data/paneldata" method="POST" class="form">
             <div class="form-lable">
                 <p>Solar Panel Information</p>
             </div>
             <div class="input-box">
-                <!-- <label>Rated-Power</label> -->
                 <input type="number" placeholder="Enter rated-power (watts)" name="rated-power">
             </div>
             <div class="input-box">
-                <!-- <label>Rated-efficiency</label> -->
                 <input type="number" placeholder="Enter rated-efficiency (%)" name="rated-efficiency">
             </div>
             <div class="input-box">
-                  <!-- <label>Panel area</label> -->
                 <input type="number" placeholder="Enter area of panel (m^2)" name="panel-area">
             </div>
             <div class="input-box">
-                <!-- <label>Nominal  cell temperature</label> -->
                 <input type="number"  placeholder="Enter the nominal cell temperature (*C)" name="nominal-cell-temp">
             </div>
             <div class="input-box">
-                <!-- <label>Panel count</label> -->
-                <input type="number" placeholder="Enter number of panel" name="panel-count">
+                <input type="number" placeholder="Enter number of panels" name="panel-count">
             </div>
             <div class="input-box">
-                <!-- <label>Pvcell count</label> -->
-                <input type="number" placeholder="Enter number of Pv cell" name="cell-count">
+                <input type="number" placeholder="Enter number of cells" name="cell-count">
             </div>
             <div class="btn-wrapper">
                 <button type="submit" class="form-btn">Submit</button>

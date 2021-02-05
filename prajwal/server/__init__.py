@@ -1,4 +1,4 @@
-from prajwal.server.mainRoute import mainRoute
+from prajwal.server.dataRoute import dataRoute
 
 def serverFiles(app):
-    mainRoute(app)
+    dataRoute(app)

@@ -1,3 +1,4 @@
+
 document.querySelector('#load-image').addEventListener('input',loadImage)
 
 function loadImage(e){
@@ -8,7 +9,7 @@ function loadImage(e){
     image.onload = () => {
         ctx.drawImage(image,0,0)
     }
-    let data = ctx.getImageData(0,0,200,200).data
+    let data = ctx.getImageData(0,0,250,225).data
     inputRadiation(getRadiation(getBrightness(data)))
 }
 
@@ -32,6 +33,7 @@ function getRadiation(brightness){
 }
 
 function inputRadiation(radiation){
+    console.log(radiation)
     document.querySelector('#radiation').textContent = radiation
     fetchRadiation(radiation)
 }
@@ -41,7 +43,6 @@ document.querySelector('#find-me').addEventListener('click', geoFindMe)
 function geoFindMe() {
     const status = document.querySelector('#status');
     const location = document.querySelector('#location')
-
     location.textContent = ''
 
     function success(position) {
@@ -53,7 +54,6 @@ function geoFindMe() {
         location.textContent = loc
         fetchLocation(loc)
     }
-
     function error() {
         status.textContent = 'Unable to retrieve your location'
         alert('we are currently unable to recive your location, so your request goes with default lacation')
@@ -61,7 +61,6 @@ function geoFindMe() {
         location.textContent = loc
         fetchLocation(loc)
     }
-
     if(!navigator.geolocation) {
         status.textContent = 'Geolocation is not supported by your browser'
     } else {
@@ -71,7 +70,7 @@ function geoFindMe() {
 }
 
 function fetchLocation(location){
-    fetch('/location',{
+    fetch('/data/location',{
         method:'POST',
         headers:{
             'content-type':'application/json'
@@ -88,7 +87,7 @@ function fetchLocation(location){
 }
 
 function fetchRadiation(radiation){
-    fetch('/radiation',{
+    fetch('/data/radiation',{
         method:'POST',
         headers:{
             'content-type':'application/json'

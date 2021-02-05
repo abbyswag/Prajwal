@@ -9,7 +9,7 @@ app.config['MONGO_DBNAME'] = 'dbb'
 app.config['MONGO_URI'] = 'mongodb://localhost:27017/dbb'
 mongo = PyMongo(app)
 
-# get routes
+# main routes
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -18,9 +18,13 @@ def index():
 def home():
     return render_template('home.html')
 
-@app.route('/output')
+@app.route('/data')
+def data():
+    return render_template('data.html')
+
+@app.route('/user')
 def output():
-    return render_template('output.html')
+    return render_template('user.html')
 
 @app.route('/about')
 def about():
@@ -30,5 +34,5 @@ def about():
 def admin():
     return render_template('admin.html')
 
-# applying other routes
+# other routes
 serverFiles(app)
