@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Output</title>
+    <title>Home</title>
     <link rel="stylesheet" href="../static/css/base.css"/>
     <link rel="stylesheet" href="../static/css/header.css"/>
-    <link rel="stylesheet" href="../static/css/output.css">
+    <link rel="stylesheet" href="../static/css/home.css"/>
 </head>
 <body>
     <header>
@@ -27,28 +27,22 @@
     </header>
 
     <section>
-        <div class="page-heading">
-            <p>Instantaneous Output Values</p>
+        <div class="animation">
+            
         </div>
-        <div class="output-values">
+        <div class="description">
             <p>
-                Electric Power = <span id="electricPower"></span> Watts 
-            </p>
-            <p>
-                Power Efficiency = <span id="efficiency"></span> %
-            </p>
-            <p>
-                Inclination from Surface = <span id="inclination"></span> degree
-            </p>
-            <p>
-                Orintation towards = <span id="orientation"></span>
+                It is a web application which helps in optimizing the installation of solar panels.
             </p>
         </div>
         <div class="btn-wrapper">
-            <div class="btn">
-                <a href="">
-                    Get Graphs
+            <div class="btn home-btn">
+                <a href="/data">
+                    Enter Data Manually
                 </a>
+            </div>
+            <div class="btn home-btn">
+                Scan Panel Details
             </div>
         </div>
     </section>
@@ -73,6 +67,6 @@
         </div>
     </div>
 
-    <script src="../static/js/output.js"></script>
+    <script src="../static/js/common.js"></script>
 </body>
 </html>

@@ -79,5 +79,5 @@ def dataRoute(app):
             'electricPower': coreHandler.getElectricPower(),
             'efficiency' : coreHandler.getEfficiency(),
             'inclination' : 45,
-            'orientation' : 'south'
+            'orientation' : 'North'
         }

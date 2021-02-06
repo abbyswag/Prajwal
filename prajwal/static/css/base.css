@@ -29,3 +29,6 @@ li{
     border: outset #f9f06f 2px;
     background-color: #f9f06f;
 }
+.btn a{
+    color: #000000;
+}

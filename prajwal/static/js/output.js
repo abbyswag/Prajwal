@@ -10,5 +10,7 @@ fetch('/data/output',{
 .then((data) => {
     document.getElementById('electricPower').textContent = data.electricPower
     document.getElementById('efficiency').textContent = data.efficiency
+    document.getElementById('inclination').textContent = data.inclination
+    document.getElementById('orientation').textContent = data.orientation
 })
 .catch(err => console.error(err))

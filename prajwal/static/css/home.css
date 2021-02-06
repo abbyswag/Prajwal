@@ -1,0 +1,25 @@
+section{
+    display: grid;
+    grid-template-rows: 2.5fr 1fr 1.5fr;
+    width: 100vw;
+    height: 89vh;
+}
+.animation{
+    display:block;
+    background-image: url(../img/panel.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.description{
+    display: grid;
+    place-items: center;
+    padding: 0 2rem;
+    font-size: 1.1rem;
+}
+.btn-wrapper{
+    display: grid;
+    place-items: center;
+}
+.home-btn:nth-child(2){
+    margin-top: -3rem;
+}
