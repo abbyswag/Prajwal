@@ -78,6 +78,7 @@ def dataRoute(app):
         return {
             'electricPower': coreHandler.getElectricPower(),
             'efficiency' : coreHandler.getEfficiency(),
+            'temprature':coreHandler.getTemp(),
             'inclination' : 45,
             'orientation' : 'North'
         }

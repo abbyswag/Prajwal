@@ -32,6 +32,9 @@ class PVCell:
         self.nocAmbientTemp = 20 # C    
         self.solarTransmittence = 0.9 # k
         self.solarAbsorptance = 1 # k
+    
+    def getArea(self):
+        return self.stcRatedPower/(self.stcEfficiency*self.stcRadiation)
 
     def getStcEfficiency(self):
         return self.stcEfficiency
@@ -58,6 +61,6 @@ class PVCell:
         """Returns electrical conversion efficiency at given cell temprature."""
         return self.getStcEfficiency()*(1 + self.tempCofficient*(self.getCellTemp(ambientTemp,radiation) - self.stcCellTemp))
     
-    def getElectricPower(self,ambientTemp,radiation,area = 1):
+    def getElectricPower(self,ambientTemp,radiation):
         """Returns output electric power."""
-        return self.getEfficiency(ambientTemp,radiation)*radiation*area
+        return self.getEfficiency(ambientTemp,radiation)*radiation*self.getArea()

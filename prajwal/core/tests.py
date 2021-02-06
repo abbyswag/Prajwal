@@ -14,7 +14,7 @@ for i in range(20):
     temp.append(5*i)
     cellTemp.append(cell.getCellTemp(5*i,1000))
     efficiecy.append(cell.getEfficiency(5*i,1000))
-    output.append(cell.getElectricPower(5*i,1000,.25))
+    output.append(cell.getElectricPower(5*i,800,.167))
 
 plt.plot(temp,cellTemp)
 plt.ylabel('cell temprature')
