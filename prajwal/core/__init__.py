@@ -40,8 +40,11 @@ class Handler:
             temp = 298
         self.temp = float(temp-273)
 
+    def getPanel(self):
+        return self.panel
+
     def getElectricPower(self):
-        return self.panel.getElectricPower(self.temp,self.radiation)*self.panelCount
+        return round(self.panel.getElectricPower(self.temp,self.radiation)*self.panelCount,2)
 
     def getEfficiency(self):
-        return self.panel.getEfficiency(self.temp,self.radiation)
+        return round(self.panel.getEfficiency(self.temp,self.radiation),2)

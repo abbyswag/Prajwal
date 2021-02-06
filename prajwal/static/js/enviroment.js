@@ -7,7 +7,7 @@ function loadImage(e){
     let image = new Image()
     image.src = url
     image.onload = () => {
-        ctx.drawImage(image,0,0)
+        ctx.drawImage(image,0,0,250,225)
     }
     let data = ctx.getImageData(0,0,250,225).data
     inputRadiation(getRadiation(getBrightness(data)))
