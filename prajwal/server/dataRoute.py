@@ -13,13 +13,13 @@ def dataRoute(app):
                 ratedPower = float(request.form['rated-power'])
                 ratedEfficiency = float(request.form['rated-efficiency'])
                 nominalCellTemp = float(request.form['nominal-cell-temp'])
-                panelArea = float(request.form['panel-area'])
-                cellCount = int(request.form['cell-count'])
+                # panelArea = float(request.form['panel-area'])
+                # cellCount = int(request.form['cell-count'])
                 panelCount = int(request.form['panel-count'])
             except:
                 return render_template('data.html')
             
-            coreHandler.setPanel(ratedPower,ratedEfficiency,nominalCellTemp,panelArea,cellCount,panelCount)
+            coreHandler.setPanel(ratedPower,ratedEfficiency,nominalCellTemp,panelCount)
             return render_template('enviroment.html')
         else:
             return render_template('data.html')

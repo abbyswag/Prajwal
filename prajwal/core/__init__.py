@@ -18,7 +18,7 @@ class Handler:
     def setRadiation(self,radiation):
         self.radiation = radiation
 
-    def setPanel(self,ratedPower,ratedEfficiency,nominalCellTemp,panelArea,cellCount,panelCount):
+    def setPanel(self,ratedPower,ratedEfficiency,nominalCellTemp,panelCount):
         self.panelCount = int(panelCount)
         self.panel = PVCell(ratedPower,ratedEfficiency/100,nominalCellTemp)
 
